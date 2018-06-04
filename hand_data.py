@@ -3,15 +3,15 @@ import cv2
 import csv
 
 
-for i in range(2,51):
+for i in range(2,501):
     if 10-i>0:
         string='000%d'%i
     elif 100-i>0:
         string='00%d'%i
     else :
         string='0%d'%i
-    depth_image = 'dataset5/A/p/depth_15_'+string+'.png'
-    color_image = 'dataset5/A/p/color_15_'+string+'.png'
+    depth_image = 'dataset5/E/l/depth_11_'+string+'.png'
+    color_image = 'dataset5/E/l/color_11_'+string+'.png'
     print(string)
     imgD = cv2.imread(depth_image, 1)
     img_color = cv2.imread(color_image, cv2.IMREAD_COLOR)
@@ -43,7 +43,7 @@ for i in range(2,51):
 
     cv2.imshow('color image', img_color)
     cv2.imshow('gray image', img_gray)
-    csvname='handdata/A/p/'+string+'.csv'
+    csvname='handdata/E/l/'+string+'.csv'
     with open(csvname, 'w', newline='') as csvfile:
         datawriter = csv.writer(csvfile, delimiter='\n')
         datawriter.writerow(hand_data)
